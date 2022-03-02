@@ -1,0 +1,53 @@
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form [formGroup]="formCreate" (ngSubmit)="createTour()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create Customer</h5>
+          <button [routerLink]="['/tour/tour-list']" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+<!--          <label>Id:</label>-->
+<!--          <div class="input-group mb-3">-->
+<!--            <input [(ngModel)]="tour.id" class="form-control" placeholder="Enter a id" >-->
+<!--&lt;!&ndash;&lt;!&ndash;            <p *ngIf="!formCreate?.get('id')?.valid" style="color: red">* id không được để trống</p>&ndash;&gt;&ndash;&gt;-->
+<!--          </div>-->
+          <label>Name:</label>
+          <div class="input-group mb-3">
+            <input class="form-control" placeholder="Enter a Name" formControlName="name">
+          </div>
+          <p *ngIf="formCreate?.get('name')?.valid" style="color: red">* không được nhập dưới 6 ký tự</p>
+          <label>Image:</label>
+          <div class="input-group mb-3">
+            <input type="file" #uploadFile (change)="uploadFileImg()" class="form-control">
+            <img [src]="arrayPicture" width="130px" height="150px" alt="">
+          </div>
+          <label>Price:</label>
+          <div class="input-group mb-3">
+            <input class="form-control" placeholder="Enter a Price" formControlName="price">
+          </div>
+          <p *ngIf="formCreate?.get('price')?.valid" style="color: red">* Hãy nhập giá lớn hơn 4</p>
+          <label>Description:</label>
+          <div class="input-group mb-3">
+            <input class="form-control" placeholder="Enter a Description" formControlName="description">
+          </div>
+          <p *ngIf="!formCreate?.get('description')?.valid" style="color: red">* không được để trống</p>
+          <label>Categories:</label>
+          <div class="input-group mb-3">
+            <select formControlName="category">
+              <option *ngFor="let c of categories" [ngValue]="c">{{c.nameCategory}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button [routerLink]="['/tour/tour-list']" type="button" class="btn btn-secondary" data-dismiss="modal">Back to list</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+<!--</div>-->
+

@@ -1,0 +1,66 @@
+<app-header></app-header>
+<div class="row flex-lg-nowrap">
+  <div class="col mb-3">
+    <div class="e-panel card">
+      <div class="card-body">
+        <div class="card-title">
+          <h6 class="mr-2"><span id="davidLg">David Duc Thang</span><small class="px-1"
+                                                                           id="studentOfClassC0921K1Lg">Student of
+            class C0921K1</small></h6>
+        </div>
+        <div class="e-table">
+          <div class="table-responsive table-lg mt-3">
+            <table class="table table-bordered">
+              <thead>
+              <tr>
+                <th class="align-top">#</th>
+                <th class="max-width">Name</th>
+                <th class="max-width">Image</th>
+                <th class="sortable">Price</th>
+                <th class="sortable">Description</th>
+                <th class="sortable">Categories</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody id="tbody">
+              <tr *ngFor="let t of tourList">
+                <td>{{t.id}}</td>
+                <td><a [routerLink]="['/tour/tour-detail', t.id]">{{t.name}}</a></td>
+                <td><img [src]="t.image" width="230px" height="250px" alt="#"></td>
+                <td>{{t.price}}</td>
+                <td>{{t.description}}</td>
+                <td>{{t.category.nameCategory}}</td>
+                <td><a [routerLink]="['/tour/tour-update', t.id]"
+                       class="btn btn-sm btn-outline-secondary badge" id="editLg">Edit</a>
+                  <button [routerLink]="['/tour/tour-delete', t.id]" class="btn btn-sm btn-outline-secondary badge"
+                          type="button"><i class="fa fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-3 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <a [routerLink]="['/tour/tour-create']" class="btn btn-success btn-block">
+          New Tour
+        </a>
+        <hr class="my-3">
+        <div>
+          <div class="form-group">
+            <label id="searchByNameLg">Search by Name:</label>
+            <div><input  id="search-input" class="form-control w-100" type="search" placeholder="Name">
+              <button (click)="searchTour()" id="search-button" class="btn btn-outline-primary">Search</button>
+            </div>
+          </div>
+        </div>
+        <hr class="my-3">
+      </div>
+    </div>
+  </div>
+</div>

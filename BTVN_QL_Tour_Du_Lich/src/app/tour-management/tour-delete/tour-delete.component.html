@@ -1,0 +1,9 @@
+<div>
+  <h1>Chi tiết tour</h1>
+  <h3>Tour du lịch {{tour.name}}</h3><br>
+  <h3>Giá: {{tour.price}}</h3><br>
+  <h3>Mô tả: {{tour.description}}</h3><br>
+  <h3>Categories: {{tour.category.nameCategory}}</h3><br>
+  <button class="btn btn-danger m-1" (click)="deleteTour()">Xoá</button>
+  <button [routerLink]="['/tour/tour-list']" class="btn btn-info">Danh sách</button>
+</div>
