@@ -5,7 +5,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabelEdit">Edit Tour</h5>
-        <button [routerLink]="['/tour-list']" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button [routerLink]="['/tour/tour-list']" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -20,23 +20,29 @@
           <input [(ngModel)]="tour.name" #name="ngModel" class="form-control" placeholder="Enter a Name" name="name">
 <!--          <p *ngIf="formCreate?.get('name')?.valid" style="color: red">* không được nhập dưới 6 ký tự</p>-->
         </div>
+        <label>Image:</label>
+        <div class="input-group mb-3">
+          <input type="file" #uploadFile (change)="uploadFileImg()" class="form-control">
+<!--          <img [src]="arrayPicture" width="130px" height="150px" alt="">-->
+          <img [src]="tour.image" width="130px" height="150px" alt="">
+        </div>
         <label>Price:</label>
         <div class="input-group mb-3">
           <input [(ngModel)]="tour.price" class="form-control" placeholder="Enter a Price" name="price">
         </div>
         <label>Description:</label>
         <div class="input-group mb-3">
-          <input [(ngModel)]="tour.description" class="form-control" placeholder="Enter a Description" >
+          <input [(ngModel)]="tour.description" class="form-control" placeholder="Enter a Description" name="description">
         </div>
         <label>Categories:</label>
         <div class="input-group mb-3">
-          <select [(ngModel)]="tour.category">
+          <select [(ngModel)]="tour.category" name="category">
             <option *ngFor="let c of categories" [ngValue]="c"> {{c.nameCategory}}</option>
           </select>
         </div>
       </div>
       <div class="modal-footer">
-        <button [routerLink]="['/tour/tour-list']" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button [routerLink]="['/tour/tour-list']" type="button" class="btn btn-secondary">Close</button>
         <button (click)="editTour()" type="submit" class="btn btn-primary">Save changes</button>
       </div>
 <!--    </form>-->
