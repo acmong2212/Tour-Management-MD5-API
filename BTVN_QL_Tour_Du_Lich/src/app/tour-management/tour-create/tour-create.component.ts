@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {Tour} from "../model/tour";
+import {Tour} from "../../model/tour";
 import {TourService} from "../../service/tour.service";
 import {Router} from "@angular/router";
-import {Category} from "../model/category";
+import {Category} from "../../model/category";
 import {CategoryService} from "../../service/category.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AngularFireStorage} from "@angular/fire/compat/storage";

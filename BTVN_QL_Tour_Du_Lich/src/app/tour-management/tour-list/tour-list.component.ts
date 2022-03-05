@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Tour} from "../model/tour";
+import {Tour} from "../../model/tour";
 import {TourService} from "../../service/tour.service";
-import {Category} from "../model/category";
+import {Category} from "../../model/category";
 
 @Component({
   selector: 'app-tour-list',

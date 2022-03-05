@@ -1,0 +1,92 @@
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="wrap d-md-flex">
+          <div class="text-wrap p-4 p-lg-5 d-flex img d-flex align-items-end" [ngStyle]="{'background-image': getUrl()}">
+            <div class="text w-100">
+              <h2 class="mb-4">Welcome to signup form</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+          </div>
+          <div class="login-wrap p-4 p-md-5">
+            <h3 class="mb-3">Create an account</h3>
+            <h3 class="mb-3" style="color: red">{{status}}</h3>
+            <form class="signup-form" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+              <div class="row">
+<!--                Full Name-->
+                <mat-form-field class="col-md-12" appearance="outline">
+                  <div class="form-group d-flex align-items-center">
+                    <label class="label">Full Name</label>
+                    <input matInput [(ngModel)]="form.name" #name="ngModel" name="name" type="text" class="form-control" placeholder="Full Name" required>
+                  </div>
+                  <mat-error style="color: red" *ngIf="name.hasError('required')">The name is required!</mat-error>
+                </mat-form-field>
+<!--                user name-->
+                <mat-form-field class="col-md-12" appearance="outline">
+                  <div class="form-group d-flex align-items-center">
+                    <label class="label">Username</label>
+                    <input matInput [(ngModel)]="form.username" #username="ngModel" name="username" type="text" class="form-control" placeholder="UserName" required>
+                  </div>
+                  <mat-error style="color: red" *ngIf="username.hasError('required')">The username is required!</mat-error>
+                </mat-form-field>
+<!--                email-->
+                <mat-form-field class="col-md-12" appearance="outline">
+                  <div class="form-group d-flex align-items-center">
+                    <label class="label">Email Address</label>
+                    <input matInput [(ngModel)]="form.email" name="email" [formControl]="emailFormControl" type="text" class="form-control" placeholder="johndoe@email.com" required>
+                  </div>
+                  <mat-error style="color: red" *ngIf="emailFormControl.hasError('required')">The email is required!</mat-error>
+                  <mat-error style="color: red" *ngIf="emailFormControl.hasError('email')">The email is invalid! Ex: thangdz@gmail.com</mat-error>
+                </mat-form-field>
+<!--                password-->
+                <mat-form-field class="col-md-12 example-container" appearance="outline">
+                  <div class="form-group d-flex align-items-center">
+                    <label class="label">Password</label>
+                    <input matInput [(ngModel)]="form.password" name="password" [type]="hide ? 'password' : 'text'" #password="ngModel" class="form-control" placeholder="Password" required minlength="3">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </div>
+                  <mat-error style="color: red" *ngIf="password.hasError('required')">The password is required!</mat-error>
+                  <mat-error style="color: red" *ngIf="password.hasError('minlength')">The password must more than 3 character</mat-error>
+                </mat-form-field>
+                <div class="col-md-12 my-4">
+                  <div class="form-group">
+                    <div class="w-100">
+                      <label class="checkbox-wrap checkbox-primary">I agree all statements in terms of service
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-secondary submit p-3">Create an account</button>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+            <div class="social-wrap">
+              <p class="or">
+                <span>or</span>
+              </p>
+              <p class="mb-3 text-center">Signup with this services</p>
+              <p class="social-media d-flex justify-content-center">
+                <a href="#" class="social-icon google d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a>
+                <a href="#" class="social-icon facebook d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+                <a href="#" class="social-icon twitter d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+              </p>
+            </div>
+            <div class="w-100 text-center">
+              <p class="mt-4">I'm already a member! <a href="#signin">Sign In</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
